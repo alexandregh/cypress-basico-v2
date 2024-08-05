@@ -198,7 +198,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
           .contains('Talking About Testing')
           .should('be.visible')
     });
-    it('CT19 - Testa a página da "Plítica de Privacidade" de forma independente', () => {
+    it('CT20 - Testa a página da "Plítica de Privacidade" de forma independente', () => {
         cy.get('#privacy a')
           .invoke('removeAttr', 'target', '_blank') // invoca uma ação neste exemplo "removeAttr"
           .click()
@@ -210,7 +210,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
           .should('be.visible', 'p', 'Talking About Testing')
     });
     Cypress._.times(10, () => {
-        it('CT20 - Usando o Loadash no CT03', () => {
+        it('CT21 - Usando o Loadash no CT03', () => {
             cy.clock()
     
             cy.get('#firstName').type('Walmyr')
@@ -230,7 +230,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
               .should('not.be.visible')
         });
     })
-    it('CT21 - Exibe e esconde as mensagens de sucesso e erro usando ".invoke()"', () => {
+    it('CT22 - Exibe e esconde as mensagens de sucesso e erro usando ".invoke()"', () => {
         cy.get('.success').should('not.be.visible')
           .invoke('show').should('be.visible').and('contain', 'Mensagem enviada com sucesso.')
           .invoke('hide').should('not.be.visible')
@@ -239,14 +239,14 @@ describe('Central de Atendimento ao Cliente TAT', () => {
           .invoke('show').should('be.visible').and('contain', 'Valide os campos obrigatórios!')
           .invoke('hide').should('not.be.visible')
     });
-    it('CT22 - Preenche a área de texto usando o comando invoke', () => {
+    it('CT23 - Preenche a área de texto usando o comando invoke', () => {
         const longText = Cypress._.repeat('0123456789', 20) // repete "0123456789" 20 vezes
 
         cy.get('#open-text-area')
           .invoke('val', longText) // seta o valor "val" do "longText" na área de texto "#open-text-area"
           .should('have.value', longText)
     });
-    it('CT23 - Faz uma requisição HTTP', () => {
+    it('CT24 - Faz uma requisição HTTP', () => {
         cy.request('https://cac-tat.s3.eu-central-1.amazonaws.com/index.html')
           .should(($response) => {
               console.log($response)
@@ -256,7 +256,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
               expect(body).to.include('CAC TAT') // Não coloca o ponto antes de expect ".expect"
         })
     });
-    it('CT24 - Encontrando o gato (cat)', () => {
+    it('CT25 - Encontrando o gato (cat)', () => {
         cy.get('#cat').should('not.be.visible')
           .invoke('show').should('be.visible')
           .invoke('hide').should('not.be.visible')
